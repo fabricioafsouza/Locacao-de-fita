@@ -2,6 +2,7 @@ package br.com.kca.api.mapper;
 
 import org.springframework.stereotype.Component;
 
+import br.com.kca.api.dto.ClientCreateDTO;
 import br.com.kca.api.dto.ClienteShowDTO;
 import br.com.kca.api.models.Cliente;
 
@@ -13,5 +14,12 @@ public class MapStructClienteMapperImpl implements MapStructClienteMapper {
 				
 		return new ClienteShowDTO(cliente);
 	}
+
+	@Override
+	public Cliente toModel(ClientCreateDTO clientCreateDTO) {
+		
+		return new Cliente(clientCreateDTO);
+	}
+	
 	
 }

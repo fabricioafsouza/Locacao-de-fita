@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import br.com.kca.api.dto.ClientCreateDTO;
+
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -29,6 +31,17 @@ public class Cliente implements Serializable{
 	
 	@Column(nullable = true, length = 60)
 	private String telefone;
+	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(ClientCreateDTO clientCreateDTO) {
+		
+		this.nome = clientCreateDTO.getNome();
+		this.email = clientCreateDTO.getEmail();
+		this.telefone = clientCreateDTO.getTelefone();
+	}
 
 	public Long getId() {
 		return id;
